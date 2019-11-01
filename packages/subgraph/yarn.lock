@@ -34,10 +34,10 @@
   optionalDependencies:
     keytar "^4.6.0"
 
-"@graphprotocol/graph-ts@0.15.1":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.15.1.tgz#d6cc85197e45dda9bb4083654c183470ff23333e"
-  integrity sha512-l5veH44ULpKq1kLudbfJctgxLaLpnLnYiDIIZn+N8UC1SrpqjLhJyRMfm+uH4xTglmAwI74wyynKWktXp44/iw==
+"@graphprotocol/graph-ts@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.16.0.tgz#a6f5e8a39b7d651887c80bb2422cfb3a0fbf55d7"
+  integrity sha512-zDhlIYlzE0xq5cJkF6fGwshfPR2z6rRZetNCgEclAtDv1uPSQaPQJuiIWL2hpTMjYHLX2OSNxy8F1G69jC708A==
   dependencies:
     assemblyscript "git+https://github.com/AssemblyScript/assemblyscript.git#36040d5b5312f19a025782b5e36663823494c2f3"
 
