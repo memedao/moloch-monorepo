@@ -1,7 +1,7 @@
 import React from "react";
 
-export const VOTING_PERIOD_LENGTH = 35;
-export const GRACE_PERIOD_LENGTH = 35;
+export const VOTING_PERIOD_LENGTH = 15;
+export const GRACE_PERIOD_LENGTH = 15;
 export const PERIOD_DURATION = 17280;
 
 export const ProposalStatus = {
