@@ -2,10 +2,10 @@ import { useQuery } from "@apollo/react-hooks";
 import { HttpLink, ApolloClient, InMemoryCache } from "apollo-boost";
 import gql from "graphql-tag";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
 import { ApolloProvider } from "react-apollo";
 import { ToastMessage } from "rimble-ui";
-import { Dimmer, Loader, Grid } from "semantic-ui-react";
+import { Dimmer, Loader, Grid, Menu, Container } from "semantic-ui-react";
 
 import Background from "./components/Background";
 import Header from "./components/Header";
@@ -104,6 +104,14 @@ const Routes = () => {
           </Wrapper>
         </Grid.Row>
       </Grid>
+      <Menu fixed='bottom' size='huge' inverted>
+        <Container>
+          <Menu.Item as={Link} header to='/'>一本DAO</Menu.Item>
+          <Menu.Item as={Link} to='/members'>Members</Menu.Item>
+          <Menu.Item as={Link} to='/proposals'>Proposals</Menu.Item>
+          <Menu.Item as={Link} to='/pool'>Pool</Menu.Item>
+        </Container>
+      </Menu>
       <ToastMessage.Provider ref={node => (window.toastProvider = node)} />
     </>
   );
