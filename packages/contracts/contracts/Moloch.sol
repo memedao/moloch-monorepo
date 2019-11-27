@@ -1,7 +1,7 @@
 pragma solidity 0.5.3;
 
 import "./oz/SafeMath.sol";
-import "./oz/ERC20.sol";
+import "./oz/IERC20.sol";
 import "./GuildBank.sol";
 
 contract Moloch {

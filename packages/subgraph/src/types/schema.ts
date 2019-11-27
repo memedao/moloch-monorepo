@@ -646,13 +646,21 @@ export class PoolMeta extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get currentPoolIndex(): BigInt {
+  get currentPoolIndex(): BigInt | null {
     let value = this.get("currentPoolIndex");
-    return value.toBigInt();
+    if (value === null) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
   }
 
-  set currentPoolIndex(value: BigInt) {
-    this.set("currentPoolIndex", Value.fromBigInt(value));
+  set currentPoolIndex(value: BigInt | null) {
+    if (value === null) {
+      this.unset("currentPoolIndex");
+    } else {
+      this.set("currentPoolIndex", Value.fromBigInt(value as BigInt));
+    }
   }
 
   get totalPoolShares(): BigInt {
