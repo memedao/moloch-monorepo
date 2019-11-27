@@ -123,7 +123,7 @@ const ProposalDetail = ({ loggedInUser, match }) => {
   const { loading, error, data } = useQuery(GET_PROPOSAL_DETAIL, {
     variables: { id: match.params.id, delegateKey: loggedInUser },
   });
-  console.log("proposalDetail: ", data);
+
   if (loading) return <Loader size="massive" active />;
   if (error) throw new Error(`Error!: ${error}`);
 
