@@ -477,7 +477,7 @@ export default ({ loggedInUser, client }) => {
   if (memberError || poolError) throw new Error(`Error!: ${memberError} ${poolError}`);
   return (
     <div id="header">
-      <Grid container columns={3} stackable verticalAlign="middle">
+      <Grid columns={3} stackable verticalAlign="middle">
         <Grid.Column textAlign="center">
           <a href="https://twitter.com/dao_meme" target="_blank" rel="noopener noreferrer">
             <Icon name="twitter" size="big" />

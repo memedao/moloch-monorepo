@@ -66,7 +66,7 @@ class BottomMenu extends React.Component {
 
   render() {
     return (
-      <Responsive onUpdate={this.handleOnScreenUpdated}>
+      <Responsive onUpdate={() => this.handleOnScreenUpdated}>
         <Menu fixed='bottom' size={this.state.menuSize} inverted>
           <Container>
             <Menu.Item as={Link} header to='/'>一本DAO</Menu.Item>
