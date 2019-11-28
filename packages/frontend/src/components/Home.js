@@ -34,7 +34,7 @@ const Home = () => {
         </Grid.Row>
         <Grid.Row>
           <Grid doubling stackable columns="equal" verticalAlign="bottom">
-            <Grid.Column fluid>
+            <Grid.Column>
               <Grid.Row className="guild_value" textAlign="center">
                 <Statistic inverted>
                   <Statistic.Label>Guild Bank Value</Statistic.Label>
