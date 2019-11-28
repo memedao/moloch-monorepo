@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
 import { ApolloProvider } from "react-apollo";
 import { ToastMessage } from "rimble-ui";
-import { Dimmer, Loader, Grid, Menu, Container } from "semantic-ui-react";
+import { Dimmer, Loader, Grid, Menu, Container, Responsive } from "semantic-ui-react";
 
 import Background from "./components/Background";
 import Header from "./components/Header";
@@ -44,6 +44,41 @@ const IS_LOGGED_IN = gql`
     loggedInUser @client
   }
 `;
+
+class BottomMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuSize: 'huge'
+    };
+  }
+  
+  componentDidMount() {
+    this.handleOnScreenUpdated();
+  }
+
+  handleOnScreenUpdated () {
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    this.setState((prevState) => ({
+      menuSize: viewportWidth > 640 ? 'huge' : 'small',
+    }))
+  }
+
+  render() {
+    return (
+      <Responsive onUpdate={this.handleOnScreenUpdated}>
+        <Menu fixed='bottom' size={this.state.menuSize} inverted>
+          <Container>
+            <Menu.Item as={Link} header to='/'>一本DAO</Menu.Item>
+            <Menu.Item as={Link} to='/members'>Members</Menu.Item>
+            <Menu.Item as={Link} to='/proposals'>Proposals</Menu.Item>
+            <Menu.Item as={Link} to='/pool'>Pool</Menu.Item>
+          </Container>
+        </Menu>
+      </Responsive>
+    );
+  }
+}
 
 const Routes = () => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
@@ -104,14 +139,7 @@ const Routes = () => {
           </Wrapper>
         </Grid.Row>
       </Grid>
-      <Menu fixed='bottom' size='huge' inverted>
-        <Container>
-          <Menu.Item as={Link} header to='/'>一本DAO</Menu.Item>
-          <Menu.Item as={Link} to='/members'>Members</Menu.Item>
-          <Menu.Item as={Link} to='/proposals'>Proposals</Menu.Item>
-          <Menu.Item as={Link} to='/pool'>Pool</Menu.Item>
-        </Container>
-      </Menu>
+      <BottomMenu />
       <ToastMessage.Provider ref={node => (window.toastProvider = node)} />
     </>
   );
