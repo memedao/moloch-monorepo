@@ -174,7 +174,7 @@ const ProposalDetail = ({ loggedInUser, match }) => {
                 <ProfileHover
                   address={proposal.memberAddress}
                   displayFull="true"
-                  url={`https://molochdao.com/members/${proposal.memberAddress}`}
+                  url={`${window.location.host}/members/${proposal.memberAddress}`}
                 />
               </Grid.Column>
             </Grid>
