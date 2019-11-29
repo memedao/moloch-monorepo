@@ -485,6 +485,9 @@ export default ({ loggedInUser, client }) => {
           <a href="https://weibo.com/memedao" target="_blank" rel="noopener noreferrer">
             <Icon name="weibo" size="big" />
           </a>
+          <a href="https://github.com/memedao" target="_blank" rel="noopener noreferrer">
+            <Icon name="github" size="big" />
+          </a>
         </Grid.Column>
         <Grid.Column textAlign="center" className="logo">
           <Link to="/">一本DAO</Link>
