@@ -67,7 +67,7 @@ class BottomMenu extends React.Component {
   render() {
     return (
       <Responsive onUpdate={() => this.handleOnScreenUpdated}>
-        <Menu fixed='bottom' size={this.state.menuSize} inverted>
+        <Menu fixed='bottom' size={this.state.menuSize} inverted widths={4}>
           <Container>
             <Menu.Item as={Link} header to='/'>一本DAO</Menu.Item>
             <Menu.Item as={Link} to='/members'>Members</Menu.Item>
@@ -149,17 +149,25 @@ const App = () => {
   const [restored, setRestored] = useState(false);
   useEffect(() => {
     async function init() {
-      let {
-        data: { loggedInUser },
-      } = await client.query({
-        query: IS_LOGGED_IN,
-      });
+      try {
+        let {
+          data: { loggedInUser },
+        } = await client.query({
+          query: IS_LOGGED_IN,
+        });
 
-      // make sure logged in metamask user is the one that's saved to storage
-      if (loggedInUser && client) {
-        await initWeb3(client, loggedInUser);
+        // make sure logged in metamask user is the one that's saved to storage
+        if (loggedInUser && client) {
+          await initWeb3(client, loggedInUser);
+        }
+      } catch (err) {
+        console.error(err);
+        window.localStorage.setItem("loggedInUser", "");
+        await client.resetStore();
+        // window.location.reload();
+      } finally {
+        setRestored(true);
       }
-      setRestored(true);
     }
     init();
   }, []);
