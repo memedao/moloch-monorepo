@@ -69,12 +69,15 @@ export function getProposalCountdownText(proposal) {
 export const inQueue = (proposal, currentPeriod) => currentPeriod < proposal.startingPeriod;
 
 export const inGracePeriod = (proposal, currentPeriod) =>
-    currentPeriod > proposal.startingPeriod + VOTING_PERIOD_LENGTH &&
+    currentPeriod >= proposal.startingPeriod + VOTING_PERIOD_LENGTH &&
     currentPeriod < proposal.startingPeriod + VOTING_PERIOD_LENGTH + GRACE_PERIOD_LENGTH;
 
-export const inVotingPeriod = (proposal, currentPeriod) => currentPeriod >= proposal.startingPeriod && currentPeriod <= proposal.startingPeriod + VOTING_PERIOD_LENGTH;
+export const inVotingPeriod = (proposal, currentPeriod) =>
+    currentPeriod >= proposal.startingPeriod &&
+    currentPeriod < proposal.startingPeriod + VOTING_PERIOD_LENGTH;
 
-export const passedVotingAndGrace = (proposal, currentPeriod) => currentPeriod > proposal.startingPeriod + VOTING_PERIOD_LENGTH + GRACE_PERIOD_LENGTH;
+export const passedVotingAndGrace = (proposal, currentPeriod) =>
+    currentPeriod >= proposal.startingPeriod + VOTING_PERIOD_LENGTH + GRACE_PERIOD_LENGTH;
 
 export function determineProposalStatus(proposal, currentPeriod) {
   proposal.startingPeriod = +proposal.startingPeriod
