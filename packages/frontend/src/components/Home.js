@@ -72,9 +72,16 @@ const Home = () => {
           </Grid>
         </Grid.Row>
         <Grid.Row textAlign="center mt-3">
-          <a class="text_link" href="https://github.com/memedao/whitepaper/blob/master/%E4%B8%80%E6%9C%ACDAO%EF%BC%8C%E4%B8%80%E7%A7%8D%E7%82%B9%E5%AF%B9%E7%82%B9%E7%9A%84%E5%90%90%E6%A7%BD%E7%B3%BB%E7%BB%9F.pdf">
-            Whitepaper / 白皮书
-          </a>
+          <div>
+            <p>
+              <a className="text_link" href="https://github.com/memedao/whitepaper/blob/master/%E4%B8%80%E6%9C%ACDAO%EF%BC%8C%E4%B8%80%E7%A7%8D%E7%82%B9%E5%AF%B9%E7%82%B9%E7%9A%84%E5%90%90%E6%A7%BD%E7%B3%BB%E7%BB%9F.pdf">
+                Whitepaper / 白皮书
+              </a>
+            </p>
+            <p>
+              <a className="text_link" href="https://etherscan.io/address/0xA49378Ff39518F2A6fdCcDB5cE7d63711a3FaF99">Contract / 合约</a>
+            </p>
+          </div>
         </Grid.Row>
 
       </Grid>

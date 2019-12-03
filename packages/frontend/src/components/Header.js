@@ -488,6 +488,9 @@ export default ({ loggedInUser, client }) => {
           <a href="https://github.com/memedao" target="_blank" rel="noopener noreferrer">
             <Icon name="github" size="big" />
           </a>
+          <a href="mailto:h4x3rotab@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Icon name="envelope outline" size="big" />
+          </a>
         </Grid.Column>
         <Grid.Column textAlign="center" className="logo">
           <Link to="/">一本DAO</Link>
