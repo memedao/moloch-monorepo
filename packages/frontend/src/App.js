@@ -49,7 +49,8 @@ class BottomMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuSize: 'huge'
+      menuSize: 'huge',
+      itemStyle: {},
     };
   }
   
@@ -61,18 +62,27 @@ class BottomMenu extends React.Component {
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     this.setState((prevState) => ({
       menuSize: viewportWidth > 640 ? 'huge' : 'small',
+      itemStyle: {paddingBottom: viewportWidth > 640 ? '0' : '20px'},
     }))
   }
 
   render() {
     return (
-      <Responsive onUpdate={() => this.handleOnScreenUpdated}>
+      <Responsive onUpdate={() => this.handleOnScreenUpdated()}>
         <Menu fixed='bottom' size={this.state.menuSize} inverted widths={4}>
           <Container>
-            <Menu.Item as={Link} header to='/'>一本DAO</Menu.Item>
-            <Menu.Item as={Link} to='/members'>Members</Menu.Item>
-            <Menu.Item as={Link} to='/proposals'>Proposals</Menu.Item>
-            <Menu.Item as={Link} to='/pool'>Pool</Menu.Item>
+            <Menu.Item header>
+              <Link to='/' style={this.state.itemStyle}>一本DAO</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/members' style={this.state.itemStyle}>Members</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/proposals' style={this.state.itemStyle}>Proposals</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/pool' style={this.state.itemStyle}>Pool</Link>
+            </Menu.Item>
           </Container>
         </Menu>
       </Responsive>
