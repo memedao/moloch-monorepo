@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Image, Statistic, Loader } from "semantic-ui-react";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-apollo";
 import { utils } from "ethers";
@@ -28,7 +29,7 @@ const Home = () => {
 
   return (
     <div id="homepage">
-      <Grid container verticalAlign="middle" textAlign="center">
+      <Grid verticalAlign="middle" textAlign="center">
         <Grid.Row>
           <Image src={logo} id='main-logo'></Image>
         </Grid.Row>
@@ -71,8 +72,8 @@ const Home = () => {
             </Grid.Column>
           </Grid>
         </Grid.Row>
-        <Grid.Row textAlign="center mt-3">
-          <div>
+        <Grid.Row className="mt-3">
+          <div style={{textAlign: 'center'}}>
             <p>
               <a className="text_link" href="https://github.com/memedao/whitepaper/blob/master/%E4%B8%80%E6%9C%ACDAO%EF%BC%8C%E4%B8%80%E7%A7%8D%E7%82%B9%E5%AF%B9%E7%82%B9%E7%9A%84%E5%90%90%E6%A7%BD%E7%B3%BB%E7%BB%9F.pdf">
                 Whitepaper / 白皮书
@@ -83,7 +84,15 @@ const Home = () => {
             </p>
           </div>
         </Grid.Row>
-
+        <Grid.Row>
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="dao_meme"
+            theme={'dark'}
+            noHeader noFooter
+            options={{height: 600, width: 600}}
+          />
+        </Grid.Row>
       </Grid>
     </div>
   );
